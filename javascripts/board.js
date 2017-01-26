@@ -1,7 +1,7 @@
 class Board {
   constructor(){
-    this.rows = 7
-    this.cols = 6
+    this.cols = 7
+    this.rows = 6
   }
 
   render(){
@@ -10,12 +10,12 @@ class Board {
     // for (let i = 1; i <= this.rows; i++ ){
     //   $(`.container-button`).append(`<button class="flex-button" id="button-${i}"></button>`)
     // }
-     for (let i = 1; i <= this.rows; i++){
-      let row = i;
-      $board.append(`<div class='flex-container container-${row}'>`)
-      for (let i = 1; i <= this.cols; i++ ){
-        let col = i;
-        $(`.container-${row}`).append(`<div class="flexMe" id="row-${col}-col-${row}"></div>`)
+     for (let i = 1; i <= this.cols; i++){
+      let col = i;
+      $board.append(`<div class='flex-container container-${col}'>`)
+      for (let i = this.rows; i > 0; i-- ){
+        let row = i;
+        $(`.container-${col}`).append(`<div class="flexMe row-${row}" id="col-${col}-row-${row}"></div>`)
       }
     }
   }

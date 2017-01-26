@@ -10,7 +10,7 @@ class Connect4 {
   }
 
   addEventHandlers(){
-    $('.flexMe').click( (event) => {
+    $('.flex-container').click( (event) => {
       this.currentPlayer()
 
       this.playCount += 1
@@ -22,9 +22,9 @@ class Connect4 {
   currentPlayer(){
 
       if (this.playCount % 2 === 0) {
-        $(event.target).css('background-color', 'green')
+        $(event.target.children).css('background-color', 'green')
       } else {
-        $(event.target).css('background-color', 'purple')
+        $(event.target.children).css('background-color', 'purple')
       }
   }
 }
