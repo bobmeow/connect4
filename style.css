@@ -3,13 +3,16 @@
 }
 
 
+#board {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
 .flex-container {
     display: -webkit-flex;
     display: flex;
     background-color: lightblue;
-    align-items: center;
-    justify-content: center;
-
+    flex-direction:column;
 }
 
 .flex-button-container {
@@ -28,12 +31,6 @@
 
 }
 
-.flexMe:hover {
-  background-color: lightgreen;
-}
-
-
-
 .flex-button {
   background-color: pink;
   width: 100px;
@@ -44,4 +41,10 @@
 
 .flex-button:hover {
   background-color: lightyellow;
+}
+
+.container-1:hover, .container-2:hover, .container-3:hover, .container-4:hover, .container-5:hover, .container-6:hover, .container-7:hover {
+  border-width: 5px;
+  border-style: solid;
+  border-color: lightgreen;
 }
