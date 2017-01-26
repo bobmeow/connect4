@@ -1,10 +1,22 @@
+* {
+  cursor: url(http://www.rw-designer.com/cursor-extern.php?id=55867), auto;
+}
+
+
 .flex-container {
     display: -webkit-flex;
     display: flex;
     background-color: lightblue;
     align-items: center;
     justify-content: center;
-    cursor: url(http://www.rw-designer.com/cursor-extern.php?id=55867), auto;
+
+}
+
+.flex-button-container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .flexMe {
@@ -12,15 +24,24 @@
     width: 100px;
     height: 100px;
     margin: 10px;
+    border-radius: 50%;
+
 }
 
 .flexMe:hover {
   background-color: lightgreen;
 }
 
+
+
 .flex-button {
   background-color: pink;
   width: 100px;
   height: 100px;
   margin: 10px;
+  border-radius: 50%;
+}
+
+.flex-button:hover {
+  background-color: lightyellow;
 }
