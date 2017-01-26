@@ -1,0 +1,25 @@
+.flex-container {
+    display: -webkit-flex;
+    display: flex;
+    background-color: lightblue;
+    align-items: center;
+    justify-content: center;
+}
+
+.flexMe {
+    background-color: lightyellow;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+}
+
+.flexMe:hover {
+  background-color: lightgreen;
+}
+
+.flex-button {
+  background-color: pink;
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+}
