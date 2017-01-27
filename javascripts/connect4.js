@@ -18,7 +18,6 @@ class Connect4 {
 
 
   currentPlayer(){
-      var test = []
        var children = $(event.target).children()
        var currentChild = ""
        for (let i = 0; i < children.length; i++) {
@@ -51,7 +50,7 @@ class Connect4 {
       obj[`row-${currentChild.id}`] = currentChild.getAttribute('data-player')
 
       tracker.push( obj )
-      
+      console.log(tracker)
   }
 
 
