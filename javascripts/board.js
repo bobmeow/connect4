@@ -12,10 +12,10 @@ class Board {
     // }
      for (let i = 1; i <= this.cols; i++){
       let col = i;
-      $board.append(`<div class='flex-container container-${col}'>`)
+      $board.append(`<div id="${col}" class='flex-container container-${col}'>`)
       for (let i = this.rows; i > 0; i-- ){
         let row = i;
-        $(`.container-${col}`).append(`<div class="flexMe row-${row}" id="col-${col}-row-${row}" data-fill="false" data-player="0"></div>`)
+        $(`.container-${col}`).append(`<div class="flexMe row-${row}" id="${row}" data-fill="false" data-player="0"></div>`)
       }
     }
   }
