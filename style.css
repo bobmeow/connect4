@@ -2,6 +2,10 @@
   cursor: url(http://www.rw-designer.com/cursor-extern.php?id=55867), auto;
 }
 
+h1 {
+  text-align: center;
+}
+
 #board {
   display: flex;
   flex-direction: row;
@@ -20,15 +24,16 @@
 
 .flexMe {
     background-color: lightyellow;
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     margin: 10px;
     border-radius: 50%;
 
 }
 
 .container-1:hover, .container-2:hover, .container-3:hover, .container-4:hover, .container-5:hover, .container-6:hover, .container-7:hover {
-  border-style: solid;
+  /*border-style: solid;
   border-width: 4px;
-  border-color: lightgreen;
+  border-color: lightgreen;*/
+  background-image: url("http://i.giphy.com/HcnirI5DLwGoU.gif");
 }
