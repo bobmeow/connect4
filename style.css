@@ -2,25 +2,21 @@
   cursor: url(http://www.rw-designer.com/cursor-extern.php?id=55867), auto;
 }
 
-
 #board {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
+
 .flex-container {
     display: -webkit-flex;
     display: flex;
+    flex-direction: column;
     background-color: lightblue;
-    flex-direction:column;
+
+
 }
 
-.flex-button-container {
-    display: -webkit-flex;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
 .flexMe {
     background-color: lightyellow;
@@ -31,20 +27,8 @@
 
 }
 
-.flex-button {
-  background-color: pink;
-  width: 100px;
-  height: 100px;
-  margin: 10px;
-  border-radius: 50%;
-}
-
-.flex-button:hover {
-  background-color: lightyellow;
-}
-
 .container-1:hover, .container-2:hover, .container-3:hover, .container-4:hover, .container-5:hover, .container-6:hover, .container-7:hover {
-  border-width: 5px;
   border-style: solid;
+  border-width: 4px;
   border-color: lightgreen;
 }
