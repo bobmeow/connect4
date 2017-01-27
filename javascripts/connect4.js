@@ -38,6 +38,18 @@ class Connect4 {
       $(currentChild).attr('data-fill', 'true')
       $(currentChild).attr('data-player', '2')
     }
+    if (currentChild.nextSibling !== null){
+      console.log('hi')
+      if (this.playCount % 2 === 0) {
+        if (currentChild.nextSibling.dataset.player.includes('1')){
+          console.log('match')
+        }
+      } else {
+        if (currentChild.nextSibling.dataset.player.includes('2')){
+          console.log('match')
+        }
+      }
+    }
 
     var obj = {}
     obj[`col-${currentChild.parentElement.id}`] = currentChild.getAttribute('data-player')

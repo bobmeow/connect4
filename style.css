@@ -2,6 +2,10 @@
   cursor: url(http://www.rw-designer.com/cursor-extern.php?id=55867), auto;
 }
 
+body {
+  background-image: url("http://i.giphy.com/11fSxqu3FUp2M0.gif");
+}
+
 h1 {
   text-align: center;
 }
