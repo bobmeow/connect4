@@ -8,15 +8,17 @@ class Connect4 {
     this.board.render()
     this.addEventHandlers()
   }
-
+//
   addEventHandlers(){
     $('.flex-container, .flex-container.flexMe').click( (event) => {
+
       this.currentPlayer()
       this.playCount += 1
     })
   }
 
   currentPlayer(){
+
     if (event.target.classList.contains('flexMe')){
       var children = event.target.parentElement.children
     } else {
@@ -29,6 +31,7 @@ class Connect4 {
 
     }
 
+
     if (this.playCount % 2 === 0) {
       $(currentChild).css('background-color', 'green')
       $(currentChild).attr('data-fill', 'true')
@@ -38,26 +41,58 @@ class Connect4 {
       $(currentChild).attr('data-fill', 'true')
       $(currentChild).attr('data-player', '2')
     }
-    if (currentChild.nextSibling !== null){
-      console.log('hi')
-      if (this.playCount % 2 === 0) {
-        if (currentChild.nextSibling.dataset.player.includes('1')){
-          console.log('match')
-        }
-      } else {
-        if (currentChild.nextSibling.dataset.player.includes('2')){
-          console.log('match')
-        }
-      }
-    }
+    // if (currentChild.nextSibling !== null){
+    //   console.log('hi')
+    //   if (this.playCount % 2 === 0) {
+    //     if (currentChild.nextSibling.dataset.player.includes('1')){
+    //       console.log('match')
+    //     }
+    //   } else {
+    //     if (currentChild.nextSibling.dataset.player.includes('2')){
+    //       console.log('match')
+    //     }
+    //   }
+    // }
 
+    var colObj = {}
+    colObj[currentChild.getAttribute('data-player')] = currentChild.parentElement.id
+    // obj[`row-${currentChild.id}`] = currentChild.getAttribute('data-player')
+
+    colTracker.push( colObj )
+    // console.log(colTracker)
+    // let matches = []
+    //
+    var matches = []
+    var counter1 = 0
+    var counter2 = 1
+    var counter = 1
     var obj = {}
-    obj[`col-${currentChild.parentElement.id}`] = currentChild.getAttribute('data-player')
-    obj[`row-${currentChild.id}`] = currentChild.getAttribute('data-player')
 
-    tracker.push( obj )
-    console.log(tracker)
-  }
+      while (counter1 < colTracker.length) {
+        while (counter2 < colTracker.length) {
+          var iValue = Object.values(colTracker[counter1])[0]
+          var iKey = Object.keys(colTracker[counter1])[0]
+          var jValue = Object.values(colTracker[counter2])[0]
+          var jKey = Object.keys(colTracker[counter2])[0]
+
+          if (iValue === jValue && jKey === iKey && currentChild.getAttribute('data-player') === '1'  ) {
+
+            if (obj[currentChild.parentElement.id] >= 1){
+                obj[currentChild.parentElement.id] += 1
+                } else {
+
+                  obj[currentChild.parentElement.id] = 1
+                }
+          }
+
+          counter2++
+        }
+        counter1++
+      }
+
+    console.log(obj)
+
+}
 }
 
-var tracker = []
+var colTracker = []
