@@ -4,6 +4,7 @@
 
 body {
   background-image: url("http://i.giphy.com/11fSxqu3FUp2M0.gif");
+  background-size: cover;
 }
 
 h1 {
