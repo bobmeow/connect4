@@ -15,7 +15,7 @@ class Board {
       $board.append(`<div class='flex-container container-${col}'>`)
       for (let i = this.rows; i > 0; i-- ){
         let row = i;
-        $(`.container-${col}`).append(`<div class="flexMe row-${row}" id="col-${col}-row-${row}"></div>`)
+        $(`.container-${col}`).append(`<div class="flexMe row-${row}" id="col-${col}-row-${row}" data-fill="false" data-player="0"></div>`)
       }
     }
   }
