@@ -1,16 +1,23 @@
 * {
   cursor: url(http://www.rw-designer.com/cursor-extern.php?id=55867), auto;
+  font-family: sans-serif;
 }
 
 body {
   background-image: url("http://i.giphy.com/11fSxqu3FUp2M0.gif");
+  background-size: cover;
 }
 
-h1 {
+.text {
+  margin-top: 5%;
+}
+h1, h3 {
   text-align: center;
+  color: lightgreen;
 }
 
 #board {
+  margin-top: 15px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -20,7 +27,7 @@ h1 {
     display: -webkit-flex;
     display: flex;
     flex-direction: column;
-    background-color: lightblue;
+    background-color: rgba( 245, 224, 98, 1 );
 
 
 }
@@ -29,6 +36,7 @@ h1 {
 .flexMe {
     background-color: lightyellow;
     width: 80px;
+    flex-shrink: 1;
     height: 80px;
     margin: 10px;
     border-radius: 50%;
