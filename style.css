@@ -17,7 +17,7 @@ h1, h3 {
 }
 
 #board {
-
+  margin-top: 15px;
   display: flex;
   flex-direction: row;
   justify-content: center;

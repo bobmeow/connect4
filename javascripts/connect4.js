@@ -29,8 +29,51 @@ class Connect4 {
     ]
   }
 
-  
 
+
+
+
+
+
+  render(){
+    this.board.render()
+    this.checkForWin()
+    this.addEventHandlers()
+  }
+
+  addEventHandlers(){
+    $('.flex-container, .flex-container.flexMe').click( (event) => {
+
+
+      if (!this.checkForWin()) {
+      this.currentPlayer()
+      this.playCount += 1
+    }
+    })
+  }
+
+  endGame() {
+    if (this.checkForWin()) {
+      $('.text').append('<center><button id="reset">reset</button></center>')
+      $('#reset').click((event) => {
+        $('.flexMe').css('background-color', 'lightyellow')
+
+        this.array = [
+          [0,0,0,0,0,0,0],
+          [0,0,0,0,0,0,0],
+          [0,0,0,0,0,0,0],
+          [0,0,0,0,0,0,0],
+          [0,0,0,0,0,0,0],
+          [0,0,0,0,0,0,0]
+        ]
+
+        this.playCount = 0
+
+        console.log(this.array)
+      })
+
+    }
+  }
 
   //vertical
   checkForWin(){
@@ -94,24 +137,6 @@ class Connect4 {
    }
  }
 
-
-  render(){
-    this.board.render()
-    this.checkForWin()
-    this.addEventHandlers()
-  }
-
-  addEventHandlers(){
-    $('.flex-container, .flex-container.flexMe').click( (event) => {
-
-
-      if (!this.checkForWin()) {
-      this.currentPlayer()
-      this.playCount += 1
-    }
-    })
-  }
-
   currentPlayer(){
     if (event.target.classList.contains('flexMe')){
       var children = event.target.parentElement.children
@@ -135,5 +160,7 @@ class Connect4 {
     }
 
     this.checkForWin()
+    this.endGame()
+
   }
 }
