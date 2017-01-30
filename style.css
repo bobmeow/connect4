@@ -33,11 +33,13 @@ h1, h3 {
 }
 
 
+
+
 .flexMe {
     background-color: lightyellow;
-    width: 80px;
+    width: 40px;
     flex-shrink: 1;
-    height: 80px;
+    height: 40px;
     margin: 10px;
     border-radius: 50%;
 
@@ -48,4 +50,50 @@ h1, h3 {
   border-width: 4px;
   border-color: lightgreen;*/
   background-image: url("http://i.giphy.com/HcnirI5DLwGoU.gif");
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0.8;
+}
+
+
+.popup {
+  margin: 210px auto;
+  padding: 3.5%;
+  background: #fff;
+  border-radius: 5px;
+  width: 40%;
+  position: relative;
+  transition: all 1s ease-in-out;
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: black;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 80ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
+}
+.popup .close:hover {
+  color: #06D85F;
+}
+.popup .content {
+  max-height: 20%;
+  overflow: auto;
 }

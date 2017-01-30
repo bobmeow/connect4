@@ -38,7 +38,6 @@ class Connect4 {
   render(){
     this.board.render()
     this.checkForWin()
-    this.endGame()
     this.addEventHandlers()
   }
 
@@ -46,6 +45,7 @@ class Connect4 {
 
     $('.flex-container, .flex-container.flexMe').click( (event) => {
       if (!this.checkForWin()) {
+
         this.currentPlayer()
         this.playCount += 1
       }
@@ -53,13 +53,11 @@ class Connect4 {
   }
 
   endGame() {
-    if (this.checkForWin()) {
 
 
-      $('.win').click((event) => {
-
-
-        $('.flexMe').css('background-color', 'lightyellow')
+        $('.flexMe').fadeTo('400','lightyellow', function(event) {
+          $(this).css('background-color', 'lightyellow')
+        });
         $('.flexMe').attr('data-fill', 'false')
 
         this.array = [
@@ -73,18 +71,24 @@ class Connect4 {
 
         this.playCount = 0
         $('.win').html('');
-
-        console.log(this.array)
-      })
-    }
-
-    return true
+  
   }
+
+
   winActions(pos1) {
     $('.win').text(`Player ${pos1} wins`)
-    $('.win').append('<br><center>restart</center>')
+      $('.popup .content').text('Great game! To play again, close this popup.')
+    $('.popup').css('visibility', 'visible')
+    $('.close').click((event) => {
+      $('.popup .content').text('One moment, resetting the board...')
+      $('.popup').css('visibility', 'hidden')
+
+        this.endGame()
+
+    })
 
   }
+
 
   //vertical
   checkForWin(){
@@ -169,7 +173,6 @@ class Connect4 {
     }
 
     this.checkForWin()
-    this.endGame()
 
   }
 }
