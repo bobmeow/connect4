@@ -29,6 +29,7 @@ class Connect4 {
     ]
   }
 
+  
 
 
   //vertical
@@ -124,17 +125,15 @@ class Connect4 {
     }
     $('body').css('background-image', `url(${backgrounds[Math.floor(Math.random() * backgrounds.length)]})`)
     if (this.playCount % 2 === 0) {
-      $(currentChild).css('background-color', 'red')
+      $(currentChild).css('background-color', 'rgba( 255 , 57 , 46 , 1 )')
       $(currentChild).attr('data-fill', 'true')
-      $(currentChild).attr('data-player', '1')
       this.array[parseInt($(currentChild).data('row')-1)][parseInt($(currentChild).data('column'))-1] = 1
     } else {
-      $(currentChild).css('background-color', 'yellow')
+      $(currentChild).css('background-color', 'rgba( 70 , 71 , 72 , 1 )')
       $(currentChild).attr('data-fill', 'true')
-      $(currentChild).attr('data-player', '2')
         this.array[parseInt($(currentChild).data('row'))-1][parseInt($(currentChild).data('column')) -1] = 2
     }
-    
+
     this.checkForWin()
   }
 }
