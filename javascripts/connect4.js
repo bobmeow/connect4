@@ -54,8 +54,11 @@ class Connect4 {
 
   endGame() {
     if (this.checkForWin()) {
-      $('.win').append('<center><button id="reset">reset</button></center>')
-      $('#reset').click((event) => {
+
+
+      $('.win').click((event) => {
+
+
         $('.flexMe').css('background-color', 'lightyellow')
         $('.flexMe').attr('data-fill', 'false')
 
@@ -73,9 +76,14 @@ class Connect4 {
 
         console.log(this.array)
       })
-
     }
+
     return true
+  }
+  winActions(pos1) {
+    $('.win').text(`Player ${pos1} wins`)
+    $('.win').append('<br><center>restart</center>')
+
   }
 
   //vertical
@@ -87,8 +95,8 @@ class Connect4 {
         let pos3 = this.array[row + 2][column]
         let pos4 = this.array[row + 3][column]
         if (pos1 !== 0 && pos1 === pos2 && pos1 === pos3 && pos1 === pos4) {
-          console.log("win")
-          $('.win').text(`Player ${pos1} wins`)
+          this.winActions(pos1)
+
           return true
         }
       }
@@ -103,8 +111,8 @@ class Connect4 {
         let pos3 = this.array[row][column + 2]
         let pos4 = this.array[row][column + 3]
         if (pos1 !== 0 && pos1 === pos2 && pos1 === pos3 && pos1 === pos4) {
-          console.log("win")
-          $('.win').text(`Player ${pos1} wins`)
+          this.winActions(pos1)
+
           return true
         }
       }
@@ -118,8 +126,7 @@ class Connect4 {
         let pos3 = this.array[row + 2][column + 2]
         let pos4 = this.array[row + 3][column + 3]
         if (pos1 !== 0 && pos1 === pos2 && pos1 === pos3 && pos1 === pos4) {
-          console.log("win")
-          $('.win').text(`Player ${pos1} wins`)
+          this.winActions(pos1)
           return true
         }
       }
@@ -132,8 +139,7 @@ class Connect4 {
         let pos3 = this.array[row - 2][column + 2]
         let pos4 = this.array[row - 3][column + 3]
         if (pos1 !== 0 && pos1 === pos2 && pos1 === pos3 && pos1 === pos4) {
-          console.log("win")
-          $('.win').text(`Player ${pos1} wins`)
+        this.winActions(pos1)
           return true
         }
       }
