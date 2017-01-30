@@ -29,9 +29,11 @@ class Connect4 {
     ]
   }
 
+
+
   //vertical
-  win(){
-   for (let row = 0; row < Math.ceil(6 / 2); row++) {
+  checkForWin(){
+   for (let row = 0; row < 3; row++) {
      for (let column = 0; column < 7; column++) {
        let pos1 = this.array[row][column]
        let pos2 = this.array[row + 1][column]
@@ -39,6 +41,8 @@ class Connect4 {
        let pos4 = this.array[row + 3][column]
        if (pos1 !== 0 && pos1 === pos2 && pos1 === pos3 && pos1 === pos4) {
          console.log("win")
+         $('.win').text(`Player ${pos1} wins`)
+         return true
        }
      }
    }
@@ -46,38 +50,44 @@ class Connect4 {
 
    //horizontal
    for (let row = 0; row < 6; row++) {
-     for (let column = 0; column < Math.ceil(7 / 2); column++) {
+     for (let column = 0; column < 4; column++) {
        let pos1 = this.array[row][column]
        let pos2 = this.array[row][column + 1]
        let pos3 = this.array[row][column + 2]
        let pos4 = this.array[row][column + 3]
        if (pos1 !== 0 && pos1 === pos2 && pos1 === pos3 && pos1 === pos4) {
          console.log("win")
+         $('.win').text(`Player ${pos1} wins`)
+         return true
        }
      }
    }
 
    //diagonal
-   for (let row = 0; row < Math.ceil(6 / 2); row++) {
-     for (let column = 0; column < Math.ceil(7 / 2); column++) {
+   for (let row = 0; row < 3; row++) {
+     for (let column = 0; column < 4; column++) {
        let pos1 = this.array[row][column]
        let pos2 = this.array[row + 1][column + 1]
        let pos3 = this.array[row + 2][column + 2]
        let pos4 = this.array[row + 3][column + 3]
        if (pos1 !== 0 && pos1 === pos2 && pos1 === pos3 && pos1 === pos4) {
          console.log("win")
+         $('.win').text(`Player ${pos1} wins`)
+         return true
        }
      }
    }
 
-   for (let row = Math.ceil(6 / 2); row < 6; row++) {
-     for (let column = 0; column < Math.ceil(7 / 2); column++) {
+   for (let row = 3; row < 6; row++) {
+     for (let column = 0; column < 4; column++) {
        let pos1 = this.array[row][column]
        let pos2 = this.array[row - 1][column + 1]
        let pos3 = this.array[row - 2][column + 2]
        let pos4 = this.array[row - 3][column + 3]
        if (pos1 !== 0 && pos1 === pos2 && pos1 === pos3 && pos1 === pos4) {
          console.log("win")
+         $('.win').text(`Player ${pos1} wins`)
+         return true
        }
      }
    }
@@ -86,6 +96,7 @@ class Connect4 {
 
   render(){
     this.board.render()
+    this.checkForWin()
     this.addEventHandlers()
   }
 
@@ -93,9 +104,10 @@ class Connect4 {
     $('.flex-container, .flex-container.flexMe').click( (event) => {
 
 
+      if (!this.checkForWin()) {
       this.currentPlayer()
-      this.win()
       this.playCount += 1
+    }
     })
   }
 
@@ -122,6 +134,7 @@ class Connect4 {
       $(currentChild).attr('data-player', '2')
         this.array[parseInt($(currentChild).data('row'))-1][parseInt($(currentChild).data('column')) -1] = 2
     }
-    console.log(this.array)
+    
+    this.checkForWin()
   }
 }
