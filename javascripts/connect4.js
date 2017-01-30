@@ -38,25 +38,26 @@ class Connect4 {
   render(){
     this.board.render()
     this.checkForWin()
+    this.endGame()
     this.addEventHandlers()
   }
 
   addEventHandlers(){
+
     $('.flex-container, .flex-container.flexMe').click( (event) => {
-
-
       if (!this.checkForWin()) {
-      this.currentPlayer()
-      this.playCount += 1
-    }
+        this.currentPlayer()
+        this.playCount += 1
+      }
     })
   }
 
   endGame() {
     if (this.checkForWin()) {
-      $('.text').append('<center><button id="reset">reset</button></center>')
+      $('.win').append('<center><button id="reset">reset</button></center>')
       $('#reset').click((event) => {
         $('.flexMe').css('background-color', 'lightyellow')
+        $('.flexMe').attr('data-fill', 'false')
 
         this.array = [
           [0,0,0,0,0,0,0],
@@ -68,74 +69,76 @@ class Connect4 {
         ]
 
         this.playCount = 0
+        $('.win').html('');
 
         console.log(this.array)
       })
 
     }
+    return true
   }
 
   //vertical
   checkForWin(){
-   for (let row = 0; row < 3; row++) {
-     for (let column = 0; column < 7; column++) {
-       let pos1 = this.array[row][column]
-       let pos2 = this.array[row + 1][column]
-       let pos3 = this.array[row + 2][column]
-       let pos4 = this.array[row + 3][column]
-       if (pos1 !== 0 && pos1 === pos2 && pos1 === pos3 && pos1 === pos4) {
-         console.log("win")
-         $('.win').text(`Player ${pos1} wins`)
-         return true
-       }
-     }
-   }
+    for (let row = 0; row < 3; row++) {
+      for (let column = 0; column < 7; column++) {
+        let pos1 = this.array[row][column]
+        let pos2 = this.array[row + 1][column]
+        let pos3 = this.array[row + 2][column]
+        let pos4 = this.array[row + 3][column]
+        if (pos1 !== 0 && pos1 === pos2 && pos1 === pos3 && pos1 === pos4) {
+          console.log("win")
+          $('.win').text(`Player ${pos1} wins`)
+          return true
+        }
+      }
+    }
 
 
-   //horizontal
-   for (let row = 0; row < 6; row++) {
-     for (let column = 0; column < 4; column++) {
-       let pos1 = this.array[row][column]
-       let pos2 = this.array[row][column + 1]
-       let pos3 = this.array[row][column + 2]
-       let pos4 = this.array[row][column + 3]
-       if (pos1 !== 0 && pos1 === pos2 && pos1 === pos3 && pos1 === pos4) {
-         console.log("win")
-         $('.win').text(`Player ${pos1} wins`)
-         return true
-       }
-     }
-   }
+    //horizontal
+    for (let row = 0; row < 6; row++) {
+      for (let column = 0; column < 4; column++) {
+        let pos1 = this.array[row][column]
+        let pos2 = this.array[row][column + 1]
+        let pos3 = this.array[row][column + 2]
+        let pos4 = this.array[row][column + 3]
+        if (pos1 !== 0 && pos1 === pos2 && pos1 === pos3 && pos1 === pos4) {
+          console.log("win")
+          $('.win').text(`Player ${pos1} wins`)
+          return true
+        }
+      }
+    }
 
-   //diagonal
-   for (let row = 0; row < 3; row++) {
-     for (let column = 0; column < 4; column++) {
-       let pos1 = this.array[row][column]
-       let pos2 = this.array[row + 1][column + 1]
-       let pos3 = this.array[row + 2][column + 2]
-       let pos4 = this.array[row + 3][column + 3]
-       if (pos1 !== 0 && pos1 === pos2 && pos1 === pos3 && pos1 === pos4) {
-         console.log("win")
-         $('.win').text(`Player ${pos1} wins`)
-         return true
-       }
-     }
-   }
+    //diagonal
+    for (let row = 0; row < 3; row++) {
+      for (let column = 0; column < 4; column++) {
+        let pos1 = this.array[row][column]
+        let pos2 = this.array[row + 1][column + 1]
+        let pos3 = this.array[row + 2][column + 2]
+        let pos4 = this.array[row + 3][column + 3]
+        if (pos1 !== 0 && pos1 === pos2 && pos1 === pos3 && pos1 === pos4) {
+          console.log("win")
+          $('.win').text(`Player ${pos1} wins`)
+          return true
+        }
+      }
+    }
 
-   for (let row = 3; row < 6; row++) {
-     for (let column = 0; column < 4; column++) {
-       let pos1 = this.array[row][column]
-       let pos2 = this.array[row - 1][column + 1]
-       let pos3 = this.array[row - 2][column + 2]
-       let pos4 = this.array[row - 3][column + 3]
-       if (pos1 !== 0 && pos1 === pos2 && pos1 === pos3 && pos1 === pos4) {
-         console.log("win")
-         $('.win').text(`Player ${pos1} wins`)
-         return true
-       }
-     }
-   }
- }
+    for (let row = 3; row < 6; row++) {
+      for (let column = 0; column < 4; column++) {
+        let pos1 = this.array[row][column]
+        let pos2 = this.array[row - 1][column + 1]
+        let pos3 = this.array[row - 2][column + 2]
+        let pos4 = this.array[row - 3][column + 3]
+        if (pos1 !== 0 && pos1 === pos2 && pos1 === pos3 && pos1 === pos4) {
+          console.log("win")
+          $('.win').text(`Player ${pos1} wins`)
+          return true
+        }
+      }
+    }
+  }
 
   currentPlayer(){
     if (event.target.classList.contains('flexMe')){
@@ -156,7 +159,7 @@ class Connect4 {
     } else {
       $(currentChild).css('background-color', 'rgba( 70 , 71 , 72 , 1 )')
       $(currentChild).attr('data-fill', 'true')
-        this.array[parseInt($(currentChild).data('row'))-1][parseInt($(currentChild).data('column')) -1] = 2
+      this.array[parseInt($(currentChild).data('row'))-1][parseInt($(currentChild).data('column')) -1] = 2
     }
 
     this.checkForWin()
