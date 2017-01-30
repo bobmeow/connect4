@@ -19,7 +19,70 @@ class Connect4 {
   constructor() {
     this.board = new Board()
     this.playCount = 0
+    this.array = [
+      [0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0]
+    ]
   }
+
+  //vertical
+  win(){
+   for (let row = 0; row < Math.ceil(6 / 2); row++) {
+     for (let column = 0; column < 7; column++) {
+       let pos1 = this.array[row][column]
+       let pos2 = this.array[row + 1][column]
+       let pos3 = this.array[row + 2][column]
+       let pos4 = this.array[row + 3][column]
+       if (pos1 !== 0 && pos1 === pos2 && pos1 === pos3 && pos1 === pos4) {
+         console.log("win")
+       }
+     }
+   }
+
+
+   //horizontal
+   for (let row = 0; row < 6; row++) {
+     for (let column = 0; column < Math.ceil(7 / 2); column++) {
+       let pos1 = this.array[row][column]
+       let pos2 = this.array[row][column + 1]
+       let pos3 = this.array[row][column + 2]
+       let pos4 = this.array[row][column + 3]
+       if (pos1 !== 0 && pos1 === pos2 && pos1 === pos3 && pos1 === pos4) {
+         console.log("win")
+       }
+     }
+   }
+
+   //diagonal
+   for (let row = 0; row < Math.ceil(6 / 2); row++) {
+     for (let column = 0; column < Math.ceil(7 / 2); column++) {
+       let pos1 = this.array[row][column]
+       let pos2 = this.array[row + 1][column + 1]
+       let pos3 = this.array[row + 2][column + 2]
+       let pos4 = this.array[row + 3][column + 3]
+       if (pos1 !== 0 && pos1 === pos2 && pos1 === pos3 && pos1 === pos4) {
+         console.log("win")
+       }
+     }
+   }
+
+   for (let row = Math.ceil(6 / 2); row < 6; row++) {
+     for (let column = 0; column < Math.ceil(7 / 2); column++) {
+       let pos1 = this.array[row][column]
+       let pos2 = this.array[row - 1][column + 1]
+       let pos3 = this.array[row - 2][column + 2]
+       let pos4 = this.array[row - 3][column + 3]
+       if (pos1 !== 0 && pos1 === pos2 && pos1 === pos3 && pos1 === pos4) {
+         console.log("win")
+       }
+     }
+   }
+ }
+
 
   render(){
     this.board.render()
@@ -29,7 +92,9 @@ class Connect4 {
   addEventHandlers(){
     $('.flex-container, .flex-container.flexMe').click( (event) => {
 
+
       this.currentPlayer()
+      this.win()
       this.playCount += 1
     })
   }
@@ -50,11 +115,13 @@ class Connect4 {
       $(currentChild).css('background-color', 'red')
       $(currentChild).attr('data-fill', 'true')
       $(currentChild).attr('data-player', '1')
+      this.array[parseInt($(currentChild).data('row')-1)][parseInt($(currentChild).data('column'))-1] = 1
     } else {
       $(currentChild).css('background-color', 'yellow')
       $(currentChild).attr('data-fill', 'true')
       $(currentChild).attr('data-player', '2')
+        this.array[parseInt($(currentChild).data('row'))-1][parseInt($(currentChild).data('column')) -1] = 2
     }
-
+    console.log(this.array)
   }
 }
