@@ -1,29 +1,66 @@
 * {
-  cursor: url(http://www.rw-designer.com/cursor-extern.php?id=55867), auto;
-  font-family: sans-serif;
+  font-family: Tahoma, Arial, sans-serif;
 }
 
 body {
-  background-image: url("http://i.giphy.com/11fSxqu3FUp2M0.gif");
-  background-size: cover;
+
+  background-color: #e5ebf1;
+  /*background-image: url("http://i.giphy.com/11fSxqu3FUp2M0.gif");
+  background-size: cover;*/
 }
 
 .text {
-  margin-top: 5%;
-}
-h1, h3 {
-  text-align: center;
-  color: lightgreen;
+  min-height: 8.4em;
+  /*width: 100%;*/
+  /*padding: 2%;*/
+  margin-bottom: 2%;
 }
 
+
+  h1, h3 {
+    margin: 0;
+    font: 600 0.7em/1 'Raleway', sans-serif;
+    color: rgba(0,0,0,.5);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: .7em;
+    position: absolute;
+    top: 5%;
+    /*bottom: 8%;*/
+    width: 100%;
+}
+
+span, span:after {
+    text-align: center;
+    font-weight: 900;
+    color: rgba( 255 , 57 , 46 , 1 );
+    white-space: nowrap;
+    display: inline-block;
+    position: relative;
+    letter-spacing: .09em;
+    padding: .2em .2em .29em .1em;
+}
+
+span {
+    font-size: 4em;
+    /*z-index: 100;*/
+    text-shadow: .04em .04em 0 rgba(0,0,0,.5);
+}
+
+
+
+
+
 #board {
-  margin-top: 15px;
+
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
 }
 
-.flex-container {
+  .flex-container {
+    margin-top: 2%;
     display: -webkit-flex;
     display: flex;
     flex-direction: column;
@@ -36,10 +73,16 @@ h1, h3 {
 
 
 .flexMe {
-    background-color: lightyellow;
-    width: 40px;
+    background-color: #e5ebf1;
+    width: 2.5em;
+    border-top-style: inset;
+    border-top-width: 0.15em;
+    border-top-color:  rgba( 245, 200, 1, 1 );
+    border-bottom-style: inset;
+    border-bottom-width: 0.15em;
+    border-bottom-color:  rgba( 245, 200, 1, 1 );
     flex-shrink: 1;
-    height: 40px;
+    height: 2.5em;
     margin: 10px;
     border-radius: 50%;
 
@@ -49,51 +92,70 @@ h1, h3 {
   /*border-style: solid;
   border-width: 4px;
   border-color: lightgreen;*/
-  background-image: url("http://i.giphy.com/HcnirI5DLwGoU.gif");
+  /*background-color:  url("http://i.giphy.com/HcnirI5DLwGoU.gif");*/
+  background-color: rgba( 245, 200, 1, 0.65 );
+
+
 }
 
 .overlay {
+
+
   position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(0, 0, 0, 0.7);
-  transition: opacity 500ms;
+  background: rgba(0, 0, 0, 0.75);
+  transition: opacity 700ms;
   visibility: hidden;
-  opacity: 0.8;
+  opacity: 0.72;
+  padding: 2%;
+
+
 }
 
 
 .popup {
-  margin: 210px auto;
-  padding: 3.5%;
-  background: #fff;
+
+  box-shadow: 0 10px 6px -6px rgba(0, 0, 0, 0.25);
+  border-width: thin;
+  border-color: rgba(0, 0, 0, 0.15);
+  border-style: solid;
+  margin: 17em auto;
+  padding-top: 4%;
+  padding-bottom: 4%;
+  padding: 2.8%;
+  background-color: white;
   border-radius: 5px;
-  width: 40%;
+  width: 30%;
   position: relative;
   transition: all 1s ease-in-out;
 }
 
 .popup h2 {
+
   margin-top: 0;
+  margin-bottom: 0.4em;
   color: black;
-  font-family: Tahoma, Arial, sans-serif;
+  font-family: Raleway, Arial, sans-serif;
 }
 .popup .close {
+
   position: absolute;
-  top: 20px;
-  right: 30px;
+  top: 0.3em;
+  right: 0.6em;
   transition: all 80ms;
-  font-size: 30px;
+  font-size: 1.2em;
   font-weight: bold;
   text-decoration: none;
-  color: black;
+  color: rgba( 70 , 71 , 72 , 1 );
 }
 .popup .close:hover {
-  color: #06D85F;
+  color: rgba( 255 , 57 , 46 , 1 );
 }
 .popup .content {
-  max-height: 20%;
+  margin: 0;
+  max-height: 15%;
   overflow: auto;
 }
