@@ -3,19 +3,13 @@
 }
 
 body {
-
-  background-color: #e5ebf1;
-  /*background-image: url("http://i.giphy.com/11fSxqu3FUp2M0.gif");
-  background-size: cover;*/
+  background-color: rgba(229, 235, 241, 1);
 }
 
 .text {
   min-height: 8.4em;
-  /*width: 100%;*/
-  /*padding: 2%;*/
   margin-bottom: 2%;
 }
-
 
   h1, h3 {
     margin: 0;
@@ -26,7 +20,6 @@ body {
     letter-spacing: .7em;
     position: absolute;
     top: 5%;
-    /*bottom: 8%;*/
     width: 100%;
 }
 
@@ -43,16 +36,10 @@ span, span:after {
 
 span {
     font-size: 4em;
-    /*z-index: 100;*/
     text-shadow: .04em .04em 0 rgba(0,0,0,.5);
 }
 
-
-
-
-
 #board {
-
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -65,15 +52,10 @@ span {
     display: flex;
     flex-direction: column;
     background-color: rgba( 245, 224, 98, 1 );
-
-
 }
 
-
-
-
 .flexMe {
-    background-color: #e5ebf1;
+    background-color: rgba(229, 235, 241, 1);
     width: 2.5em;
     border-top-style: inset;
     border-top-width: 0.15em;
@@ -85,22 +67,13 @@ span {
     height: 2.5em;
     margin: 10px;
     border-radius: 50%;
-
 }
 
 .container-1:hover, .container-2:hover, .container-3:hover, .container-4:hover, .container-5:hover, .container-6:hover, .container-7:hover {
-  /*border-style: solid;
-  border-width: 4px;
-  border-color: lightgreen;*/
-  /*background-color:  url("http://i.giphy.com/HcnirI5DLwGoU.gif");*/
   background-color: rgba( 245, 200, 1, 0.65 );
-
-
 }
 
 .overlay {
-
-
   position: fixed;
   top: 0;
   bottom: 0;
@@ -111,13 +84,9 @@ span {
   visibility: hidden;
   opacity: 0.72;
   padding: 2%;
-
-
 }
 
-
 .popup {
-
   box-shadow: 0 10px 6px -6px rgba(0, 0, 0, 0.25);
   border-width: thin;
   border-color: rgba(0, 0, 0, 0.15);
@@ -134,14 +103,13 @@ span {
 }
 
 .popup h2 {
-
   margin-top: 0;
   margin-bottom: 0.4em;
   color: black;
   font-family: Raleway, Arial, sans-serif;
 }
-.popup .close {
 
+.popup .close {
   position: absolute;
   top: 0.3em;
   right: 0.6em;
@@ -151,9 +119,11 @@ span {
   text-decoration: none;
   color: rgba( 70 , 71 , 72 , 1 );
 }
+
 .popup .close:hover {
   color: rgba( 255 , 57 , 46 , 1 );
 }
+
 .popup .content {
   margin: 0;
   max-height: 15%;

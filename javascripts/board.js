@@ -6,10 +6,6 @@ class Board {
 
   render(){
     let $board = $('#board')
-    // $('#buttons').append(`<div class='flex-button-container container-button'>`)
-    // for (let i = 1; i <= this.rows; i++ ){
-    //   $(`.container-button`).append(`<button class="flex-button" id="button-${i}"></button>`)
-    // }
      for (var i = 1; i <= this.cols; i++){
       let col = i;
       $board.append(`<div id="${col}" class='flex-container container-${col}'>`)

@@ -1,20 +1,3 @@
-// var backgrounds = [
-//   "http://i.giphy.com/26BRLblDUw8VAhoFq.gif",
-//   "http://i.giphy.com/qBhCZARUiS5WM.gif",
-//   "http://i.giphy.com/11fSxqu3FUp2M0.gif",
-//   "http://i.giphy.com/tzrlO0JiwjS7e.gif",
-//   "http://i.giphy.com/3oriOeBHxdF9FokwJq.gif",
-//   "http://i.giphy.com/mcT6IxQicH7hu.gif",
-//   "http://i.giphy.com/l3q2ZlDOphy540eli.gif",
-//   "http://i.giphy.com/26xBzu2ogAunL19hS.gif",
-//   "http://i.giphy.com/NxWk4NY7C59Fm.gif",
-//   "http://i.giphy.com/dGBiI0Wx9WPte.gif",
-//   "http://i.giphy.com/BlcWQ9L2VfOFO.gif",
-//   "http://i.giphy.com/3oEduH8ySCZMrUdytW.gif",
-//   "http://i.giphy.com/UsqR2a5lOCzAI.gif",
-//   "http://i.giphy.com/CLkMWh66GNkm4.gif"
-// ]
-
 class Connect4 {
   constructor() {
     this.board = new Board()
@@ -29,12 +12,6 @@ class Connect4 {
     ]
   }
 
-
-
-
-
-
-
   render(){
     this.board.render()
     this.checkForWin()
@@ -42,10 +19,8 @@ class Connect4 {
   }
 
   addEventHandlers(){
-
     $('.flex-container, .flex-container.flexMe').click( (event) => {
       if (!this.checkForWin()) {
-
         this.currentPlayer()
         this.playCount += 1
       }
@@ -53,8 +28,6 @@ class Connect4 {
   }
 
   endGame() {
-
-
         $('.flexMe').fadeTo('400','#e5ebf1', function(event) {
           $(this).css('background-color', '#e5ebf1')
         })
@@ -71,9 +44,7 @@ class Connect4 {
 
         this.playCount = 0
         $('.win').html('');
-
   }
-
 
   winActions(pos1) {
     $('.win').text(`Player ${pos1} Wins`)
@@ -87,11 +58,8 @@ class Connect4 {
       $('.popup').css('visibility', 'hidden')
       $('.overlay').css('visibility', 'hidden')
 
-
         this.endGame()
-
     })
-
   }
 
 
@@ -166,7 +134,6 @@ class Connect4 {
       if (children[i].getAttribute('data-fill') === 'false')
       currentChild = children[i]
     }
-    // $('body').css('background-image', `url(${backgrounds[Math.floor(Math.random() * backgrounds.length)]})`)
     if (this.playCount % 2 === 0) {
       $(currentChild).css('background-color', 'rgba( 255 , 57 , 46 , 1 )')
       $(currentChild).attr('data-fill', 'true')
@@ -176,8 +143,6 @@ class Connect4 {
       $(currentChild).attr('data-fill', 'true')
       this.array[parseInt($(currentChild).data('row'))-1][parseInt($(currentChild).data('column')) -1] = 2
     }
-
     this.checkForWin()
-
   }
 }
